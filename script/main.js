@@ -108,7 +108,7 @@ app.controller('AppCtrl', function ($scope, $mdToast, $location, $http, $mdDialo
     $scope.act_id = parseInt($location.search()['id']);
     $http.get('edit-activity.php?id=' + $scope.act_id).
     success(function(data, status, headers, config) {
-        $scope.act = angular.fromJson(data);
+        $scope.edit = angular.fromJson(data);
         if ($scope.act.err === true) {
             $scope.act.name = 'Error';
             $scope.showMessageToast($scope.act.msg);

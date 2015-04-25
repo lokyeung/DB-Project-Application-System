@@ -1,0 +1,19 @@
+app乜乜app物物唔使理
+.controller('ViewActCtrl', function ($scope, $http, $location) {
+}
+controller 名係起php既MD-CONTENT度set
+$scope.act_id = parseInt($location.search()['id']);
+get id=乜乜乜做variable
+
+    $http.get('view-activity.php?id=' + $scope.act_id).
+    success(function(data, status, headers, config) {
+        $scope.act = angular.fromJson(data);
+        if ($scope.act.err === true) {
+            $scope.act.name = 'Error';
+            $scope.showMessageToast($scope.act.msg);
+        }
+    });
+
+send get request 去個網, 記住要加scope
+            $scope.showMessageToast($scope.act.msg);
+個message名冇既話要起showmessagetoast度加

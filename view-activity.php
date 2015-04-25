@@ -14,13 +14,15 @@ if (!isset($_GET['id']) || $_GET['id'] != '1') { // cannot get id
         'id' => '1',
         'name' => 'DN150502 Sevillanas Dance',
         'deadline' => '2015-05-06',
+        'start_time' => '11:00',
+        'end_time' => '11:30',
         'description' => 'Sevillanas are danced by couples of all ages and sexes during celebrations (fiestas or ferias), often by whole families and towns. Sevillana choreography is very stable and knowing it is very useful, since it is a festival dance. This is why those intending to dance flamenco usually start by learning sevillanas; they are easier to master and there are more occasions for practice and training.',
         'date' => array(
             '2015-05-15',
             '2015-05-22',
         ),
         'status' => 1,
-        'enrollable' => false
+        'enrollable' => false,
     );
 
     returnJson($activity_detail);

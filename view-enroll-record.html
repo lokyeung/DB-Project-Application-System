@@ -5,14 +5,14 @@
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
         <!--<meta name="viewport" content="initial-scale=1, maximum-scale=1" />-->
-        <title>Staff Club > View Activity List</title>
+        <title>Staff Club > View Application Record</title>
     </head>
     <body layout="column" ng-controller="AppCtrl">
         <div layout="row" flex>
             <section ng-include="'sidenav.html'" layout="vertical"></section>
             <div flex id="content">
                 <md-toolbar layout="row" flex class="fill-height">
-                    <h1 class="md-toolbar-tools" layout-align-gt-sm="left">View Activity List > All</h1>
+                    <h1 class="md-toolbar-tools" layout-align-gt-sm="left">View Application Record</h1>
                 </md-toolbar>
                 <md-content layout="column" class="md-padding" ng-controller="ViewActListCtrl">
                     <section data-ng-init="showMessageToast('loginAlready')" ng-if="staff_id!=null"></section>
@@ -24,7 +24,7 @@
                                 <div flex="35">Organize date</div>
                                 <div flex="15">Deadline</div>
                                 <div flex="15">Status</div>
-                                <div flex="10">Detail</div>
+                                <div flex="10">Operation</div>
                             </section>
                             <md-divider></md-divider>
                             <section ng-repeat="act in actList">
@@ -32,15 +32,12 @@
                                     <div flex="25">{{act.name}}</div>
                                     <div flex="35"><span ng-repeat="actDate in act.date">{{actDate}}, </span></div>
                                     <div flex="15">{{act.deadline}}</div>
-                                    <div flex="15"><span ng-if="act.status==1">Available</span><span ng-if="act.status==0">Closed</span><span ng-if="act.status==2">Ready to organize</span></div>
-                                    <div flex="10"><md-button ng-href="view-activity.html?id={{act.id}}">Detail</md-button><md-button ng-href="edit-activity.html?id={{act.id}}" ng-if="user.is_admin">Edit</md-button></div>
+                                    <div flex="15"><span ng-if="act.status==1">Available</span><span ng-if="act.status==0">Closed</span><span ng-if="act.status==2">Ready to organize</span> + <span ng-if="act.isPaid">Paid</span><span ng-if="!act.isPaid">Not paid</span></div>
+                                    <div flex="10"><md-button ng-click="withdraw(act.id)">Withdraw</md-button></div>
                                 </div>
                                 <md-divider ng-if="!$last"></md-divider>
                             </section>
                         </section>
-                        <section>
-                        <md-button ng-href="create-activity.html" ng-if="user.is_admin" class="md-raised">Create new activity</md-button>
-                            </section>
                     </section>
                 </md-content>
             </div>
