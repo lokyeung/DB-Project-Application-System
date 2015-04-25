@@ -1,0 +1,107 @@
+<html lang="en" ng-app="StaffClubApp">
+    <head>
+        <base href="/db-project2/">
+        <link rel="stylesheet" href="./stylesheet/main.css">
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+        <!--<meta name="viewport" content="initial-scale=1, maximum-scale=1" />-->
+        <title>Staff Club > Register</title>
+    </head>
+    <body layout="column" ng-controller="AppCtrl">
+        <div layout="row" flex>
+            <section ng-include="'sidenav.html'" layout="vertical"></section>
+            <div flex id="content">
+                <md-toolbar layout="row" flex class="fill-height">
+                    <h1 class="md-toolbar-tools" layout-align-gt-sm="left">Register</h1>
+                </md-toolbar>
+                <md-content layout="column" class="md-padding" ng-controller="RegCtrl">
+                    <section data-ng-init="showMessageToast('loginAlready')" ng-if="staff_id!=null"></section>
+                    <section>
+                        <h2 class="md-title">Register for a non-membership account</h2>
+                        <form ng-model="register.form" ng-submit="submit()">
+                            <section layout="column">
+                                <section layout="row">
+                                    <md-input-container flex>
+                                        <label>Staff Number</label>
+                                        <input required ng-model="reg.staff_id">
+                                    </md-input-container>
+                                </section>
+                                <section layout="row">
+                                    <md-input-container flex>
+                                        <label>Password</label>
+                                        <input required type="password" ng-model="reg.password">
+                                    </md-input-container>
+                                    <md-input-container flex>
+                                        <label>Re-type Password</label>
+                                        <input required type="password" ng-model="reg.password2">
+                                    </md-input-container>
+                                </section>
+                                <section layout="row">
+                                    <md-select placeholder="Title" ng-model="reg.title" required>
+                                        <md-option value="1">Prof.</md-option>
+                                        <md-option value="2">Dr.</md-option>
+                                        <md-option value="3">Mr.</md-option>
+                                        <md-option value="4">Mrs.</md-option>
+                                        <md-option value="5">Ms</md-option>
+                                    </md-select>
+                                    <md-input-container flex>
+                                        <label>Full Name</label>
+                                        <input required ng-model="reg.name">
+                                    </md-input-container>
+                                </section>
+                                <section layout="row">
+                                    <md-input-container>
+                                        <label>Department</label>
+                                        <input ng-model="reg.department" required>
+                                    </md-input-container>
+                                    <md-select placeholder="Position Type" ng-model="reg.positionType">
+                                        <md-option value="1">Academic</md-option>
+                                        <md-option value="2">Non-academic</md-option>
+                                    </md-select>
+                                    <md-input-container flex>
+                                        <label>Position</label>
+                                        <input ng-model="reg.position">
+                                    </md-input-container>
+                                </section>
+                                <section layout="row">
+                                    <md-input-container flex>
+                                        <label>Email Address</label>
+                                        <input required type="email" ng-model="reg.email" flex>
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <label>Office Number</label>
+                                        <input required type="tel" maxlength="8" ng-model="reg.contact.office">
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <label>Mobile Number</label>
+                                        <input required type="tel" maxlength="8" ng-model="reg.contact.mobile">
+                                    </md-input-container>
+                                </section>
+                                <section layout="row">
+                                    <md-input-container flex>
+                                        <label>Emergency Contact Person</label>
+                                        <input ng-model="reg.contact.emergency.name">
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <label>Emergency Contact Number</label>
+                                        <input type="tel" ng-model="reg.contact.emergency.mobile">
+                                    </md-input-container>
+                                </section>
+                                <section layout="row">
+                                    <md-button class="md-raised md-primary" ng-type="submit">Register</md-button>
+                                </section>
+                            </section>
+                        </form>
+                    </section>
+                </md-content>
+            </div>
+        </div>
+        <!-- Angular Material Dependencies -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0-rc.0/angular-route.min.js"></script>
+        <script src="./script/main.js"></script>
+    </body>
+</html>

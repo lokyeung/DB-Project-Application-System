@@ -1,0 +1,64 @@
+<html lang="en" ng-app="StaffClubApp">
+    <head>
+        <base href="/db-project2/">
+        <link rel="stylesheet" href="./stylesheet/main.css">
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+        <!--<meta name="viewport" content="initial-scale=1, maximum-scale=1" />-->
+        <title>Staff Club > Login</title>
+    </head>
+    <body layout="column" ng-controller="AppCtrl">
+        <div layout="row" flex>
+            <section ng-include="'sidenav.html'" layout="vertical"></section>
+            <div flex id="content">
+                <md-toolbar layout="row" flex class="fill-height">
+                    <h1 class="md-toolbar-tools" layout-align-gt-sm="left">Dashboard > Create Acitivity</h1>
+                </md-toolbar>
+                <md-content layout="column" class="md-padding" ng-controller="CreateActCtrl">
+                        <section>
+                            <section layout="row">
+                                <md-button class="md-raised" ng-href="view-activity-list.html?id={{act_type_id}}">Back</md-button>
+                            </section>
+                            <h2 class="md-title">Create Acitivity</h2>
+                            <section>
+                                <form ng-model="create.form" ng-submit="submit()">
+                                <md-input-container flex>
+                                    <label>Activity Name</label>
+                                    <input required ng-model="create.name">
+                                </md-input-container>
+                                <md-input-container flex>
+                                    <label>Description</label>
+                                    <textarea ng-model="create.description" columns="1" md-maxlength="150"></textarea>
+                                </md-input-container>
+                                <md-input-container flex>
+                                    <label>Organize Date</label>
+                                    <input type="date" required ng-model="create.date">
+                                </md-input-container>
+                                <md-input-container flex>
+                                    <label>Venue</label>
+                                    <input required ng-model="create.venue">
+                                </md-input-container>
+                                <md-input-container flex>
+                                    <label>Application Deadline</label>
+                                    <input type="date" required ng-model="create.deadline">
+                                </md-input-container>
+                                <md-input-container flex>
+                                    <label>Instructor Name</label>
+                                    <input required ng-model="create.instructor">
+                                </md-input-container>
+                                <md-button class="md-raised md-primary">Create</md-button>
+                                </form>
+                            </section>
+                        </section>
+                </md-content>
+            </div>
+        </div>
+        <!-- Angular Material Dependencies -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0-rc.0/angular-route.min.js"></script>
+        <script src="./script/main.js"></script>
+    </body>
+</html>

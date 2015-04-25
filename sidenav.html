@@ -1,0 +1,32 @@
+<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-is-locked-open="1">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>Poly U Staff Club</span>
+            </h2>
+        </div>
+    </md-toolbar>
+    <md-list>
+        <md-item>
+            <md-subheader class="md-primary">Hot Links</md-subheader>
+        </md-item>
+        <md-item>
+            <a href="index.html" class="md-button"><md-button>Home</md-button></a>
+        </md-item>
+        <md-item ng-if="staff_id==null">
+            <a href="login.html" class="md-button"><md-button>Login</md-button></a>
+        </md-item>
+        <md-item ng-if="staff_id==null">
+            <a href="reg.html" class="md-button"><md-button>Register</md-button></a>
+        </md-item>
+        <md-item>
+            <a href="view-activity-list.html" class="md-button"><md-button>View activity list</md-button></a>
+        </md-item>
+        <md-item ng-if="staff_id!=null">
+            <a href="logout.html" class="md-button"><md-button>Logout</md-button></a>
+        </md-item>
+        <md-item ng-if="staff_id!=null">
+            <a href="create-activity.html" class="md-button"><md-button>Create new activity</md-button></a>
+        </md-item>
+    </md-list>
+</md-sidenav>
