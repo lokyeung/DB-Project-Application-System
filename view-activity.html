@@ -28,9 +28,9 @@
                                         <p ng-repeat="actDate in act.date">{{actDate}}</p>
                                         <md-divider></md-divider>
                                     </div>
-                                    <div class="md-list-item-text" ng-if="act.time!=null">
+                                    <div class="md-list-item-text" ng-if="act.start_time!=null&&act.end_time!=null">
                                         <h3>Time</h3>
-                                        <p>{{act.time}}</p>
+                                        <p>{{act.start_time}} - {{act.end_time}}</p>
                                         <md-divider></md-divider>
                                     </div>
                                     <div class="md-list-item-text" ng-if="act.venue!=null">
@@ -52,6 +52,10 @@
                                     <div class="md-list-item-text">
                                         <h3>Application Deadline</h3>
                                         <p>{{act.deadline}}</p>
+                                    </div>
+                                    <div class="md-list-item-text">
+                                        <h3>Status</h3>
+                                        <p><span ng-if="act.status==1">Available</span><span ng-if="act.status==0">Closed</span><span ng-if="act.status==2">Ready to organize</span></p>
                                     </div>
                                 </md-list-item>
                             </section>
